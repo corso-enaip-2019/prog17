@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dice Poker</title>
+</head>
+<style>
+    .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .diebox {
+        display: inline-block;
+    }
+    .die {
+        font-family:'Courier New', Courier, monospace;
+        font-size: 200px;
+    }
+    .die[held]{
+        background-color: forestgreen;
+    }
+    .hidden{
+        display: none;
+    }
+</style>
+<body>
+    <header>
+        <h1>Dice Poker</h1>
+    </header>
+    <main>
+        <button class="btn btn-primary" id="btn-deal" onclick="deal()">Deal</button>
+        <div class="row">
+            <div class="diebox">
+                <div class="die" id="d1">X</div>
+                <button class="btn" id="bd1" onclick="hold(1)" hidden>Hold</button>
+            </div>
+            <div class="diebox">
+                <div class="die" id="d2">X</div>
+                <button class="btn" id="bd2" onclick="hold(2)" hidden>Hold</button>
+            </div>
+            <div class="diebox">
+                <div class="die" id="d3">X</div>
+                <button class="btn" id="bd3" onclick="hold(3)" hidden>Hold</button>
+            </div>
+            <div class="diebox">
+                <div class="die" id="d4">X</div>
+                <button class="btn" id="bd4" onclick="hold(4)" hidden>Hold</button>
+            </div>
+            <div class="diebox">
+                <div class="die" id="d5">X</div>
+                <button class="btn" id="bd5" onclick="hold(5)" hidden>Hold</button>
+            </div>
+        </div>
+        <h2 id="scorekeeper"></h2>
+    </main>
+</body>
+<script src="js/index.js"></script>
+</html>

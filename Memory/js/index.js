@@ -33,7 +33,9 @@ function shuffleCards(){
 }
 
 function flip(cardId){
-    if (firstId == cardId)
+    if (firstId == cardId ||
+        document.getElementById(`card${cardId}`).getAttribute("noclick") == "true" ||
+        document.getElementById("card-box").getAttribute("noclick") == "true")
         return;
     
     document.getElementById(`card${cardId}`).firstChild.src = cards[cardId];
@@ -44,16 +46,16 @@ function flip(cardId){
 
     secondId = cardId;
     if (cards[firstId] == cards[secondId]){
-        document.getElementById(`card${firstId}`).setAttribute("disabled", true);
-        document.getElementById(`card${secondId}`).setAttribute("disabled", true);
+        document.getElementById(`card${firstId}`).setAttribute("noclick", true);
+        document.getElementById(`card${secondId}`).setAttribute("noclick", true);
         pairsFound += 1;
     }
     else {
-        document.getElementById("card-box").setAttribute("disabled", true);
+        document.getElementById("card-box").setAttribute("noclick", true);
         let c1 = firstId;
         let c2 = secondId;
         setTimeout(function() {
-            document.getElementById("card-box").setAttribute("disabled", false);
+            document.getElementById("card-box").setAttribute("noclick", false);
             document.getElementById(`card${c1}`).firstChild.src = "img/card-back.png";
             document.getElementById(`card${c2}`).firstChild.src = "img/card-back.png";
         }, 1000);
